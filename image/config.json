@@ -1,0 +1,28 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154",
+        "manufacturer": "@nfarina",
+        "model": "Homebridge",
+        "serialNumber": "Not Specified",
+        "firmwareRevision": "0.4.27",
+        "hardwareRevision": "<optional>"
+    },
+    "description": "",
+    "accessories": [ ],
+    "platforms": [
+      {
+        "platform": "HomeAssistant",
+        "name": "HomeAssistant",
+        "host": "http://127.0.0.1:8123",
+        "password": "yourapipassword",
+        "supported_types": ["automation", "binary_sensor", "climate", "cover", "device_tracker", "fan", "group", "input_boolean", "light", "lock", "media_player", "remote", "scene", "sensor", "switch"],
+        "default_visibility": "hidden",
+        "logging": true,
+        "verify_ssl": true
+      }
+    ]
+
+}

@@ -5,6 +5,7 @@ cd /root/.homebridge
 env_file="/root/.homebridge/.env"
 install_file="/root/.homebridge/install.sh"
 package_file="/root/.homebridge/package.json"
+config_file="/root/.homebridge/config.json"
 plugin_folder="/root/.homebridge/plugins"
 
 # Include environment variables
@@ -37,7 +38,6 @@ fi
 if [ -f "$package_file" ]
 then
     echo "Installing plugins from $package_file."
-
     npm install
 else
     echo "$package_file not found."
@@ -47,10 +47,21 @@ fi
 if [ -f "$install_file" ]
 then
     echo "Installing plugins from $install_file."
-
-    /bin/bash $install_file
 else
     echo "$install_file not found."
+    echo "Adding sample install.sh file"
+    cp /root/install.sh /root/.homebridge/install.sh
+fi
+/bin/bash $install_file
+
+
+# Copy example config file
+if [ -f "$config_file" ]
+then
+    echo "$config_file already exists."
+else
+    echo "Adding example $config_file."
+    cp /root/config.json /root/.homebridge/config.json
 fi
 
 rm -f /var/run/dbus/pid /var/run/avahi-daemon/pid

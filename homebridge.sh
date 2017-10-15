@@ -4,8 +4,8 @@ BASEDIR=$(dirname $0)
 cd $BASEDIR
 
 VERSION=$(<VERSION)
-IMAGE_NAME="marcoraddatz/homebridge"
-CONTAINER_NAME=Homebridge
+IMAGE_NAME="stenehall/homebridge"
+CONTAINER_NAME=homebridge
 
 ACTION=$1
 
